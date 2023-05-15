@@ -8,7 +8,7 @@ export class ProductsRepository {
 
   async findById(code: string): Promise<products> {
 
-    const data = await this.repo.prisma.products.findFirst({
+    const data = await this.repo.prisma.products.findUnique({
       where: {
         code: +code
       },

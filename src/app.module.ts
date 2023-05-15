@@ -1,3 +1,4 @@
+import { PacksModule } from './modules/packs/packs.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
@@ -10,8 +11,9 @@ import { ProductsModule } from './modules/products/products.module';
       isGlobal: true,
     }),
     HttpModule,
+    PrismaModule,
     ProductsModule,
-    PrismaModule
+    PacksModule
   ]
 })
 export class AppModule { }

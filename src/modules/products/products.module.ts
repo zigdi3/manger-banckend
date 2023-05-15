@@ -5,6 +5,7 @@ import { ProductsService } from './products.service';
 import { ProductsController } from './products.controller';
 import { ProductsRepository } from './products.repository';
 import { BigIntInterceptor } from '../../shared/interceptors/big-int.interceptor';
+import { PacksRepository } from '../packs/packs.repository';
 
 @Module({
     imports: [],
@@ -12,6 +13,7 @@ import { BigIntInterceptor } from '../../shared/interceptors/big-int.interceptor
         ProductsController,],
     providers: [
         ProductsRepository,
+        PacksRepository,
         ProductsService,
         {
             provide: APP_INTERCEPTOR,

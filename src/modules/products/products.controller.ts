@@ -1,9 +1,9 @@
-import { Controller, Get, Param, UseInterceptors, } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseInterceptors, } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { BigIntInterceptor } from 'src/shared/interceptors/big-int.interceptor';
 
 @Controller('products')
-@UseInterceptors(BigIntInterceptor)
+//@UseInterceptors(BigIntInterceptor)
 export class ProductsController {
   constructor(private service: ProductsService) {
 
@@ -15,7 +15,12 @@ export class ProductsController {
   }
 
   @Get(':code')
-  getById(@Param('code') productId: string) {
-    return this.service.getById(productId);
+  getById(@Param('code') productId: number) {
+    return this.service.getById("" + productId);
+  }
+
+  @Post('/validar')
+  validateImport(@Body() importedData: { base64Data: Buffer }) {
+    return this.service.validateImport(importedData as any);
   }
 }
