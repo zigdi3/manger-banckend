@@ -6,24 +6,24 @@ import { packs } from '@prisma/client';
 export class PacksRepository {
   constructor(private repo: PrismaService) { }
 
-  async findById(id: string): Promise<packs> {
+  // async findById(id: string): Promise<packs[]> {
 
-    const data = await this.repo.prisma.packs.findFirst({
-      where: {
-        id: +id
-      },
-    })
+  //   const data = await this.repo.prisma.packs.findMany({
+  //     where: {
+  //       pack_id: BigInt(id)
+  //     },
+  //   })
 
-    return data as packs;
-  }
-  async findByPackId(packId: string): Promise<packs> {
+  //   return data as packs[];
+  // }
+  async findPacketsById(packId: string): Promise<packs[]> {
 
-    const data = await this.repo.prisma.packs.findFirst({
+    const data = await this.repo.prisma.packs.findMany({
       where: {
         pack_id: +packId
       },
     })
 
-    return data as packs;
+    return data as packs[];
   }
 }

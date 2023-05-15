@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, UseInterceptors, } from '@nestjs/common';
+import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
 import { BigIntInterceptor } from 'src/shared/interceptors/big-int.interceptor';
 import { PacksService } from './packs.service';
 
@@ -10,12 +10,8 @@ export class PacksController {
   }
 
   @Get(':id')
-  findById(@Param('id') id: string) {
-    return this.service.getByPackId(id);
+  findByPackId(@Param('id') id: string) {
+    return this.service.getPacketsById(id);
   }
 
-  @Get(':packId')
-  findPackId(@Param('packId') id: string) {
-    return this.service.getByPackId(id);
-  }
 }

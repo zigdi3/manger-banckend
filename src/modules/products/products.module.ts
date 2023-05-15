@@ -9,8 +9,7 @@ import { PacksRepository } from '../packs/packs.repository';
 
 @Module({
     imports: [],
-    controllers: [
-        ProductsController,],
+    controllers: [ProductsController],
     providers: [
         ProductsRepository,
         PacksRepository,

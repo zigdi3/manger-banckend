@@ -1,9 +1,11 @@
+import { Decimal } from '@prisma/client/runtime';
+
 export class ValidateProductsDTO {
-  code: string | number;
+  code: string;
   name: string
-  costPrice?: number;
-  salesPrice?: number;
-  newPrice?: number;
+  costPrice?: Decimal;
+  salesPrice?: Decimal;
+  newPrice?: Decimal;
   isValidCost?: boolean;
   isValidPrice?: boolean;
   isValidPack?: boolean;

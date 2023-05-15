@@ -10,11 +10,11 @@ import { PacksRepository } from './packs.repository';
 export class PacksService {
   constructor(private service: PacksRepository) { }
 
-  async getbyId(id: string): Promise<packs> {
-    return this.service.findById(id);
-  }
+  // async getById(id: string): Promise<packs[]> {
+  //   return this.service.findById(id);
+  // }
 
-  async getByPackId(id: string): Promise<packs> {
-    return this.service.findByPackId(id);
+  async getPacketsById(id: string): Promise<packs[]> {
+    return this.service.findPacketsById(id);
   }
 }

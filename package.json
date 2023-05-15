@@ -19,12 +19,21 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
+  "resolutions": {
+    "@typescript-eslint/typescript-estree": "~6.0.0-alpha.141",
+    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/types": "~6.0.0-alpha.141",
+    "@typescript-eslint/scope-manager": "~6.0.0-alpha.141",
+    "**/@typescript-eslint/parser": "^4.1.1"
+  },
   "dependencies": {
     "@nestjs/axios": "^2.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@prisma/client": "^4.13.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "prisma": "^4.13.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
@@ -40,8 +49,6 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "@typescript-eslint/scope-manager": "3.5.0",
-    "@typescript-eslint/typescript-estree": "~6.0.0-alpha.141",
     "axios": "^1.4.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",

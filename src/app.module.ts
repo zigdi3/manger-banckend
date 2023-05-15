@@ -5,6 +5,8 @@ import { HttpModule } from '@nestjs/axios';
 
 import { PrismaModule } from './modules/infra';
 import { ProductsModule } from './modules/products/products.module';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { TransformHTTPResponseInterceptor } from './shared/interceptors/http-transform.interceptor';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,7 +15,13 @@ import { ProductsModule } from './modules/products/products.module';
     HttpModule,
     PrismaModule,
     ProductsModule,
-    PacksModule
-  ]
+    PacksModule,
+  ],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TransformHTTPResponseInterceptor
+    },
+  ],
 })
 export class AppModule { }

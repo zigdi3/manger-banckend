@@ -7,10 +7,11 @@ https://docs.nestjs.com/modules
 
 import { Module } from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';
+import { PacksController } from './packs.controller';
 
 @Module({
     imports: [],
-    controllers: [],
+    controllers: [PacksController],
     providers: [
         PacksService,
         PacksRepository,
