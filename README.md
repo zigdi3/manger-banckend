@@ -1,29 +1,16 @@
-### manger-backend
-
-
-```
-https://img.shields.io/static/v1?label=<LABEL>&message=<MESSAGE>&color=<COLOR>&style=<STYLE>&logo=<LOGO>
-```
+# 
+    Manger-Backend
 
 
 ```
 > Status do Projeto: Em desenvolvimento :warning:
 ```
 
-[
-
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-```
-<img src="https://img.shields.io/static/v1?label=react&message=framework&color=blue&style=for-the-badge&logo=REACT"/>
-```
-
-
 ## Pacotes utilizados neste projeto:
 
 [Nestjs Framework](https://docs.nestjs.com/) - Tenha uma aplicação nodejs+TypeScript em segundos.
 
-[Prisma ORM](https://www.prisma.io/docs) - Interface para acesso à base de dados SQL/no-SQL . 
+[Prisma ORM](https://www.prisma.io/docs) - Interface para acesso à base de dados SQL/no-SQL .
 
 ## Projeto
 
@@ -33,9 +20,7 @@ O backend Manger funciona como uma API para manger-react e realizar operações 
 
 > Este projeto requer [Node.js](https://nodejs.org/) v16.20+ para rodar.
 >
->
 > Instale as dependencias e execute o app:
-
 
 ```sh
 npm i
