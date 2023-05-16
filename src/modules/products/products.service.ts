@@ -52,7 +52,7 @@ export class ProductsService {
         costPrice: null,
         salesPrice: null,
         newPrice: null,
-        isValidCost: false,
+        isValidCost: true,
         isValidPrice: true,
         isValidPack: true,
         isFound: true,
@@ -70,7 +70,8 @@ export class ProductsService {
           if (item?.code.toString().trim().length < 4) {
 
             //validar produtos precos
-            (!this.checkValidMinimumCostProduct(line?.new_price, item)) ? validations.isValidCost = false : ' ';
+            (!this.checkValidMinimumCostProduct(line?.new_price, item)) ?
+              validations.isValidCost = false : validations.isValidCost = true;
 
             //(!this.checkValidPrice(line?.new_price, item)) ? validations.isValidPrice = false : '';
           }
@@ -86,20 +87,20 @@ export class ProductsService {
 
               for (let itemDb of kit) {
                 let productKit = await this.productsService.findById("" + itemDb?.product_id);
-                let idx = 0;
+
                 //soma o preco de venda para cada produto do pacote constando como validado
                 for (let dataToEval of response) {
-                  let value = dataToEval[idx]?.code;
+
+                  let value = "" + dataToEval?.code
                   let compareInDb = productKit?.code.toString(16) as string;
                   if (value == compareInDb.trim()) {
-                    totalPrice = totalPrice.plus(dataToEval[idx].sales_price.times(itemDb.qty));
+                    totalPrice = totalPrice.plus(dataToEval.newPrice.times("" + itemDb.qty));
                   }
-                  idx++;
-                }
-              }
 
-              if (totalPrice !== line.new_price) {
-                validations.isValidPack = false;
+                }
+
+                (totalPrice.equals(new Decimal(line.new_price))) ?
+                  validations.isValidPack = false : validations.isValidPack = true;
               }
             }
           }
